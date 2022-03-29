@@ -14,7 +14,7 @@ class Game
 
     def draw_board
         @board.each { |row| puts row.join }
-        puts "Make your move #{@current_player}" if @winner == false
+        puts "Make your move #{@current_player}. Enter your moves row and column" if @winner == false
     end
 
     def winning_message
@@ -52,13 +52,21 @@ class Game
             draw_board()
         else
             puts "Invalid move"
+            puts "Make your move #{@current_player}. Enter your moves row and column" if @winner == false
+        end
+    end
+
+    def play_game
+        draw_board()
+        while !@winner
+            move = gets.chomp
+            move = move.split
+            row = move[0].to_i
+            column = move[1].to_i
+            move(row, column)
         end
     end
 end
 
 game = Game.new
-game.draw_board
-
-game.move(1,1)
-game.move(1,1)
-game.move(1,1)
+game.play_game()

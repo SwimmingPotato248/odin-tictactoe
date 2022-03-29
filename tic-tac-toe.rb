@@ -45,7 +45,7 @@ class Game
     def move(row, column)
         row = (row - 1) * 2
         column = (column - 1) * 2
-        if @board[row][column] = " "
+        if @board[row][column] == " "
             @board[row][column] = @current_player
             check_winner()
             @current_player == "x" ? @current_player = "o" : @current_player = "x"
@@ -60,8 +60,5 @@ game = Game.new
 game.draw_board
 
 game.move(1,1)
-game.move(2,2)
-game.move(1,2)
-game.move(1,2)
-game.move(3,3)
-game.move(1,3)
+game.move(1,1)
+game.move(1,1)
